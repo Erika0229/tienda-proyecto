@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&family=Scope+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Página web Las D'licias</title>
+    <style>
+        .carousel-item img {
+            object-fit: cover; /* Mantener proporciones de imagen */
+            height: 300px; /* Ajustar la altura de las imágenes */
+            width: 100%; /* Asegurarse de que la imagen llene el espacio */
+        }
+        .carousel {
+            margin: auto; /* Centrar el carrusel */
+            max-width: 300px; /* Ancho máximo para los carruseles */
+        }
+        .carousel-container {
+            display: flex;
+            justify-content: center; /* Centrar el contenido */
+            flex-wrap: wrap; /* Permitir que los carruseles se envuelvan en filas */
+        }
+        .carousel-title {
+            text-align: center;
+            font-size: 1.5em; /* Aumentar el tamaño de la fuente */
+            color: black;
+            text-transform: uppercase;
+            text-decoration: underline;
+            font-weight: bold; /* Hacer la fuente más gruesa */
+            font-style: italic; /* Aplicar cursiva */
+            margin-bottom: 10px; /* Espacio debajo del título */
+        }
+        footer {
+            background-color: #003366; /* Azul oscuro */
+            color: white; /* Texto blanco */
+            padding: 1rem 0; /* Espaciado */
+            text-align: center; /* Centrar texto */
+            position: relative; /* Posición relativa */
+            bottom: 0; /* Asegurarse de que el pie esté al final */
+            width: 100%; /* Ancho completo */
+        }
+        nav {
+            display: flex; /* Usar flexbox para el navbar */
+            justify-content: center; /* Centrar el navbar */
+            align-items: center; /* Centrar verticalmente */
+            padding: 1rem; /* Espaciado */
+            background-color: #003366; /* Color de fondo */
+        }
+        .nav-title {
+            font-size: 1.5em; /* Tamaño de la fuente del título */
+            font-weight: bold; /* Hacer el texto más grueso */
+            margin-right: 20px; /* Espacio a la derecha del título */
+        }
+        .nav-links {
+            list-style: none; /* Quitar los puntos de la lista */
+            padding: 0; /* Quitar el padding */
+            display: flex; /* Usar flexbox para alinear horizontalmente */
+            margin: 0; /* Quitar el margen */
+        }
+        .nav-links li {
+            position: relative; /* Posición relativa para el dropdown */
+            margin: 0 15px; /* Espacio entre los enlaces */
+        }
+        .nav-links li ul {
+            display: none; /* Ocultar el menú desplegable inicialmente */
+            position: absolute; /* Posición absoluta para el menú desplegable */
+            background: #003366; /* Fondo del menú desplegable */
+            border: 1px solid #ccc; /* Borde del menú desplegable */
+            padding: 10px; /* Espaciado interno */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+            z-index: 1; /* Asegurarse de que se superponga al contenido */
+        }
+        .nav-links li:hover ul {
+            display: block; /* Mostrar menú desplegable al pasar el ratón */
+        }
+        .nav-links li ul li {
+            margin: 0; /* Sin margen en el menú desplegable */
+        }
+        .btn-grueso {
+            font-size: 1.2em; /* Tamaño de fuente más grande */
+            font-weight: bold; /* Texto en negrita */
+            padding: 10px 20px; /* Espaciado interno del botón */
+            background-color: #007bff; /* Color de fondo del botón */
+            color: rgb(5, 5, 5); /* Color del texto */
+            border: none; /* Sin borde */
+            border-radius: 5px; /* Bordes redondeados */
+            text-decoration: none; /* Sin subrayado */
+            display: inline-block; /* Mostrar como bloque en línea */
+            transition: background-color 0.3s; /* Transición suave */
+        }
+        .btn-grueso:hover {
+            background-color: #0056b3; /* Color al pasar el ratón */
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <header class="header">
+            <nav>
+                <div class="nav-title">¡BIENVENIDO A LAS D'LICIAS!</div>
+                <ul class="nav-links">
+                    <li>
+                        <a href="#" class="btn-grueso">CONTENIDO</a>
+                        <ul>
+                            <li><a href="catalogo.html" style="font-weight: bold; text-decoration: none;">INICIO</a></li>
+                            <li><a href="registro.php" style="font-weight: bold; text-decoration: none;">REGISTRO</a></li>
+                            <li><a href="tienda.php" style="font-weight: bold; text-decoration: none;">MENÚ</a></li>
+                            <li><a href="contactanos.html" style="font-weight: bold; text-decoration: none;">CONTACTO</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    
+        <aside class="sidebar">
+            <div class="logo_sidebar">
+                <img src="img/logo_sb.jpeg" alt="">
+            </div>
+        </aside>
+
+        <main class="contenido">
+            <div class="titulo">
+                <h2>¡Explora nuestro delicioso menú de comida rápida! ¡Satisfacción instantánea en cada bocado! ¡Descubre ya!</h2>
+            </div>
+
+            <div class="carousel-container">
+                <!-- Carrusel Hamburguesa -->
+                <div id="carouselExample1" class="carousel slide mb-4" data-ride="carousel">
+                    <div class="carousel-title">Hamburguesas</div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/hamburguesa pollo.jpg" class="d-block w-100" alt="Hamburguesas">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/Hamburguesa Ranchera Crispy.webp" class="d-block w-100" alt="Hamburguesas">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/Hamburguesa langostinos.webp" class="d-block w-100" alt="Hamburguesas">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExample1" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExample1" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+
+                <!-- Carrusel Perro Caliente -->
+                <div id="carouselExample2" class="carousel slide mb-4" data-ride="carousel">
+                    <div class="carousel-title">Perros Calientes</div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/perro horno.jpg" class="d-block w-100" alt="perro">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/Perro Mexicano.webp" class="d-block w-100" alt="Perro">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/Perro Americano.webp" class="d-block w-100" alt="perro">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExample2" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExample2" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+
+                <!-- Carrusel Mazorcada -->
+                <div id="carouselExample3" class="carousel slide mb-4" data-ride="carousel">
+                    <div class="carousel-title">Mazorcada</div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/Mazorcada de Carne.webp" class="d-block w-100" alt="Mazorcada">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/Mazorcada de Pollo.webp" class="d-block w-100" alt="Mazorcada">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/Mazorcada de Chorizo.webp" class="d-block w-100" alt="Mazorcada">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExample3" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExample3" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+
+                <!-- Carrusel Salchipapas -->
+                <div id="carouselExample4" class="carousel slide mb-4" data-ride="carousel">
+                    <div class="carousel-title">Salchipapas</div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/img2.jpeg" class="d-block w-100" alt="Salchipapas">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/img5.jpeg" class="d-block w-100" alt="Salchipapas">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/img7.jpeg" class="d-block w-100" alt="Salchipapas">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExample4" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExample4" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+
+                <!-- Carrusel Pizza -->
+                <div id="carouselExample5" class="carousel slide mb-4" data-ride="carousel">
+                    <div class="carousel-title">Pizza</div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/Pizza 5 Carnes.webp" class="d-block w-100" alt="Pizzas">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/Pizza Hawaiana.webp" class="d-block w-100" alt="Pizzas">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/pizza paisa.jpg" class="d-block w-100" alt="Pizzas">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExample5" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExample5" class="carousel-control-next" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+
+                <!-- Carrusel Gaseosa -->
+                <div id="carouselExample6" class="carousel slide mb-4" data-ride="carousel">
+                    <div class="carousel-title">Gaseosa</div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/Coca Cola Original 1.5 l.webp" class="d-block w-100" alt="Gaseosa">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/Colombiana 400 ml.webp" class="d-block w-100" alt="Gaseosa">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/Agua manantial con gas 600ml.webp" class="d-block w-100" alt="Gaseosa">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExample6" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExample6" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </div>
+</body>
+<footer>
+    <p>© <?php echo date("Y"); ?> Las D'licias. Todos los derechos reservados.</p>
+</footer>
+</html>

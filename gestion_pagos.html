@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Pagos</title>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        function toggleCardFields() {
+            const metodoPago = document.querySelector('select[name="metodo_pago"]').value;
+            const tarjetaInfo = document.getElementById('tarjeta_info');
+            tarjetaInfo.style.display = metodoPago === 'tarjeta' ? 'block' : 'none';
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <nav>
+                <div class="logo">
+                    <img src="img/logo.jpeg" alt="Logo" style="max-width: 150px;">
+                </div>
+                <ul class="nav-links">
+                    <li><a href="catalogo.html">INICIO</a></li>
+                    <li><a href="panel_administrador.php">PANEL ADMIN</a></li>
+                    <li><a href="tienda.php">MENÚ</a></li>
+                    <li><a href="contactanos.html">CONTACTO</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <h1>Gestión de Pagos</h1>
+
+        <h2>Pagos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre Completo</th>
+                    <th>Correo</th>
+                    <th>Dirección</th>
+                    <th>Ciudad</th>
+                    <th>Código Postal</th>
+                    <th>Nombre Tarjeta</th>
+                    <th>Número Tarjeta</th>
+                    <th>Mes Vencimiento</th>
+                    <th>Año Vencimiento</th>
+                    <th>CVV</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php while ($row = $resultPagos->fetch_assoc()): ?>
+                    <tr>
+                        <td><?php echo $row['id']; ?></td>
+                        <td><?php echo $row['nombre_completo']; ?></td>
+                        <td><?php echo $row['correo']; ?></td>
+                        <td><?php echo $row['direccion']; ?></td>
+                        <td><?php echo $row['ciudad']; ?></td>
+                        <td><?php echo $row['codigo_postal']; ?></td>
+                        <td><?php echo $row['nombre_tarjeta']; ?></td>
+                        <td><?php echo $row['numero_tarjeta']; ?></td>
+                        <td><?php echo $row['mes_vencimiento']; ?></td>
+                        <td><?php echo $row['anio_vencimiento']; ?></td>
+                        <td><?php echo $row['cvv']; ?></td>
+                    </tr>
+                <?php endwhile; ?>
+            </tbody>
+        </table>
+
+        <h2>Direcciones</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre Completo</th>
+                    <th>Correo</th>
+                    <th>Dirección</th>
+                    <th>Ciudad</th>
+                    <th>Código Postal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php while ($row = $resultDirecciones->fetch_assoc()): ?>
+                    <tr>
+                        <td><?php echo $row['id']; ?></td>
+                        <td><?php echo $row['nombre_completo']; ?></td>
+                        <td><?php echo $row['correo']; ?></td>
+                        <td><?php echo $row['direccion']; ?></td>
+                        <td><?php echo $row['ciudad']; ?></td>
+                        <td><?php echo $row['codigo_postal']; ?></td>
+                    </tr>
+                <?php endwhile; ?>
+            </tbody>
+        </table>
+    </div>
+
+    <?php
+    // Cerrar conexión
+    $conn->close();
+    ?>
+
+
+    
+    <a href="panel_administrador.php">
+        <button style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            Volver
+        </button>
+    </a>
+    <footer>
+        <p>© <?php echo date("Y"); ?> Las D'licias. Todos los derechos reservados.</p>
+    </footer>
+    
+    <style>
+        footer {
+            background-color: #003366; /* Azul oscuro */
+            color: white; /* Texto blanco */
+            padding: 1rem 0; /* Espaciado */
+            text-align: center; /* Centrar texto */
+            position: relative; /* Posición relativa */
+            bottom: 0; /* Asegurarse de que el pie esté al final */
+            width: 100%; /* Ancho completo */
+        }
+    </style>
+</body>
+</html>

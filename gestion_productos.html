@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Productos</title>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="contenedor">
+        <header class="header">
+            <nav>
+                <div class="logo">
+                    <img src="img/logo.jpeg" alt="Logo">
+                </div>
+                <ul class="nav-links">
+                    <li><a href="catalogo.html">INICIO</a></li>
+                    <li><a href="panel_administrador.php">PANEL ADMIN</a></li>
+                    <li><a href="tienda.php">MENÚ</a></li>
+                    <li><a href="contactanos.html">CONTACTO</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <aside class="sidebar">
+            <div class="logo_sidebar">
+                <img src="img/logo_sb.jpeg" alt="">
+            </div>
+        </aside>
+
+        <main class="contenido">
+            <div class="container">
+                <h1 class="title">Gestión de Productos</h1>
+
+                <?php if (isset($mensaje)): ?>
+                    <div class="alert alert-info">
+                        <?= $mensaje ?>
+                    </div>
+                <?php endif; ?>
+<!-- Botón para agregar un producto -->
+<form action="subir_productos.php" method="get">
+    <input type="submit" value="Agregar Producto" style="background-color: green; color: white; border: none; padding: 5px 10px; cursor: pointer;">
+</form>
+
+                <h2 class="subtitle">Lista de Productos</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Descripción</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($productos as $producto): ?>
+                            <tr>
+                                <td><?= $producto->id ?></td>
+                                <td><?= $producto->nombre ?></td>
+                                <td><?= $producto->precio ?></td>
+                                <td><?= $producto->descripcion ?></td>
+                                <td>
+                                    <div style="display: flex; gap: 5px;"> <!-- Usar flexbox para alinear botones -->
+                                        <!-- Formulario para eliminar el producto -->
+                                        <form method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este producto?');">
+                                            <input type="hidden" name="id_producto" value="<?= $producto->id ?>">
+                                            <button class="btn btn-danger" type="submit" name="eliminar">Eliminar</button>
+                                        </form>
+                                        
+                                        <!-- Formulario para editar el producto -->
+                                        <form method="get" action="editar_producto.php">
+                                            <input type="hidden" name="id" value="<?= $producto->id ?>">
+                                            <button class="btn btn-primary" type="submit">Editar</button> 
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        <a href="panel_administrador.php">
+            <button style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                Volver
+            </button>
+        </a>
+
+    </div>
+    <footer>
+        <p>© <?php echo date("Y"); ?> Las D'licias. Todos los derechos reservados.</p>
+    </footer>
+    
+    <style>
+        footer {
+            background-color: #003366; /* Azul oscuro */
+            color: white; /* Texto blanco */
+            padding: 1rem 0; /* Espaciado */
+            text-align: center; /* Centrar texto */
+            position: relative; /* Posición relativa */
+            bottom: 0; /* Asegurarse de que el pie esté al final */
+            width: 100%; /* Ancho completo */
+        }
+    </style>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI';
+}
+.custom-icon {
+    font-size: 25px; 
+}
+.nav-links a {
+    color: #fff; 
+    text-decoration: none; /* Eliminar subrayado de los enlaces */
+}
+
+p{
+    text-align: center;
+}
+nav {
+    background-color: #1e375d;
+    color: #fff;
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    padding: 2px 300px 0 10px;
+    flex-grow: 1;
+}  
+.logo{
+    order: -1;
+    margin-right: auto;
+}  
+.logo img{
+    height: 50px;
+    border-radius: 50%;
+}
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display:flex;
+    color: rgb(255, 255, 255);
+    
+}
+
+.nav-links li{
+    margin-right: 100px;
+}
+.nav-links li:last-child{
+    margin-right: 0;
+
+}
+.nav-links li a:hover{
+    color:#607D8B; /*Cambia el color al pasar el ratón*/
+}
+.login{
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    padding: 17px;
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+}
+

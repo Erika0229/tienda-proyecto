@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Panel de Administrador</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
+<body>
+
+<div class="contenedor">
+    <header class="header">
+        <nav>
+            <div class="logo">
+                <img src="img/logo.jpeg" alt="Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="catalogo.html">INICIO</a></li>
+                <li><a href="panel_administrador.php">PANEL ADMIN</a></li>
+                <li><a href="tienda.php">MENÚ</a></li>
+                <li><a href="contactanos.html">CONTACTO</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <aside class="sidebar">
+        <div class="logo_sidebar">
+            <img src="img/logo_sb.jpeg" alt="">
+        </div>
+    </aside>
+    
+    <main class="contenido">
+      <div class="container">
+        <!-- Aquí se insertará la tabla generada -->
+        {{tabla_usuarios}}
+      </div>
+    </main>
+    <a href="panel_administrador.php">
+      <button style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+          Volver
+      </button>
+  </a>
+  
+  </div>
+  <footer>
+  
+    <p>© <?php echo date("Y"); ?> Las D'licias. Todos los derechos reservados.</p>
+</footer>
+
+<style>
+    footer {
+        background-color: #003366; /* Azul oscuro */
+        color: white; /* Texto blanco */
+        padding: 1rem 0; /* Espaciado */
+        text-align: center; /* Centrar texto */
+        position: relative; /* Posición relativa */
+        bottom: 0; /* Asegurarse de que el pie esté al final */
+        width: 100%; /* Ancho completo */
+    }
+</style>
+</body>
+</html>
